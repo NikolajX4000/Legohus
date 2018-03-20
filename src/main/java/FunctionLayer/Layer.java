@@ -22,6 +22,7 @@ public class Layer {
         bot = new ArrayList<>();
         right = new ArrayList<>();
         left = new ArrayList<>();
+        bricks = new ArrayList<>();
         buildLayer();
         bricks = mergeLists(mergeLists(top, bot), mergeLists(right, left));
     }
@@ -148,9 +149,9 @@ public class Layer {
                 amount1 += b.getAmount();
             }
         }
-        bricks.add(new Brick(4,amount4));
-        bricks.add(new Brick(2,amount2));
-        bricks.add(new Brick(1,amount1));
+        res.add(new Brick(4,amount4));
+        res.add(new Brick(2,amount2));
+        res.add(new Brick(1,amount1));
         return res;
     }
 
@@ -238,7 +239,7 @@ public class Layer {
             }
 
         }
-        return amount4 + " x :::: " + amount2 + " x :: " + amount1 + " x :";
+        return "Layer " + level + '{' + amount4 + " x :::: " + amount2 + " x :: " + amount1 + " x :}";
     }
 
 }
