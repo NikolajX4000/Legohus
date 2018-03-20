@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connector {
+
     private static final String IP = "159.89.9.144";
     private static final int PORT = 3306;
     public static final String DATABASE = "LegoHouse";
