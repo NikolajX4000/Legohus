@@ -27,57 +27,57 @@ public class HouseLayer {
     private void buildLayer() {
         if (level % 2 == 0) {
             if (level <= 6) {
-                buildBotDoor();
+                buildBotDoor(length);
             } else {
-                buildBot();
+                buildBot(length);
             }
             if (level >= 3 && level <= 5) {
-                buildTopWindow();
+                buildTopWindow(length);
             } else {
-                buildTop();
+                buildTop(length);
             }
-            buildSide();
+            buildSide(width - 4);
         } else {
-            buildSide();
+            buildSide(width);
             if (level <= 6) {
-                buildBotDoor();
+                buildBotDoor(length - 4);
             } else {
-                buildBot();
+                buildBot(length - 4);
             }
             if (level >= 3 && level <= 5) {
-                buildTopWindow();
+                buildTopWindow(length - 4);
             } else {
-                buildTop();
+                buildTop(length - 4);
             }
         }
     }
 
-    private void buildSide() {
-        buildRight();
-        buildLeft();
+    private void buildSide(int length) {
+        buildRight(length);
+        buildLeft(length);
     }
 
-    private void buildTop() {
-
+    private void buildTop(int length) {
+        
     }
 
-    private void buildTopWindow() {
-
-    }
-
-    private void buildBot() {
+    private void buildTopWindow(int length) {
 
     }
 
-    private void buildBotDoor() {
+    private void buildBot(int length) {
 
     }
 
-    private void buildRight() {
+    private void buildBotDoor(int length) {
 
     }
 
-    private void buildLeft() {
+    private void buildRight(int length) {
+
+    }
+
+    private void buildLeft(int length) {
 
     }
 
