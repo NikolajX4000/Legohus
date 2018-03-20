@@ -225,7 +225,7 @@ public class Layer {
             }
 
         }
-        return "Layer " + level + '{' + amount4 + " x :::: " + amount2 + " x :: " + amount1 + " x :}";
+        return "Layer" + level + '{' + amount4 + " x [::::] " + amount2 + " x [::] " + amount1 + " x [:]}";
     }
 
 }

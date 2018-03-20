@@ -13,9 +13,10 @@ public class Main {
         int width = rand.nextInt(10) + 6;
         int height = rand.nextInt(10) + 7;
         House h = new House(length, width, height);
-        System.out.println("length = " + length + ", width = " + width);
+        System.out.println("length = " + length + ", width = " + width + ", height = " + height);
         for (Layer l : h.getHouse()) {
             System.out.println(l);
         }
+        System.out.println(h);
     }
 }

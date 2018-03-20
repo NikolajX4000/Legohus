@@ -9,13 +9,16 @@ public class House {
     private int width;
     private int height;
     private List<Layer> house;
+    private List<Brick> bricks;
 
     public House(int length, int width, int height) {
         this.length = length;
         this.width = width;
         this.height = height;
         house = new ArrayList<>();
+        bricks = new ArrayList<>();
         buildHouse();
+        brickList();
     }
 
     private void buildHouse() {
@@ -24,9 +27,25 @@ public class House {
         }
 
     }
-    
-    
-    
+
+    private void brickList() {
+        int amount4 = 0;
+        int amount2 = 0;
+        int amount1 = 0;
+        for (Layer l : house) {
+            for (Brick b : l.getBricks()) {
+                switch (b.getLength()) {
+                    case 4: amount4 += b.getAmount(); break;
+                    case 2: amount2 += b.getAmount(); break;
+                    case 1: amount1 += b.getAmount(); break;
+                }
+            }
+        }
+        bricks.add(new Brick(4, amount4));
+        bricks.add(new Brick(2, amount2));
+        bricks.add(new Brick(1, amount1));
+    }
+
     public int getLength() {
         return length;
     }
@@ -74,5 +93,21 @@ public class House {
             return false;
         }
         return true;
+    }
+    
+    @Override
+    public String toString() {
+        int amount4 = 0;
+        int amount2 = 0;
+        int amount1 = 0;
+        for (Brick b : bricks) {
+            switch (b.getLength()) {
+                case (4): amount4 = b.getAmount(); break;
+                case (2): amount2 = b.getAmount(); break;
+                case (1): amount1 = b.getAmount(); break;
+            }
+
+        }
+        return '{' + amount4 + " x [::::] " + amount2 + " x [::] " + amount1 + " x [:]}";
     }
 }
