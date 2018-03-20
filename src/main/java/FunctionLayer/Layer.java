@@ -132,7 +132,6 @@ public class Layer {
                 case 4: amount4 += b.getAmount(); break;
                 case 2: amount2 += b.getAmount(); break;
                 case 1: amount1 += b.getAmount(); break;
-                default: break;
             }
         }
         for (Brick b : l2) {
@@ -140,7 +139,6 @@ public class Layer {
                 case 4: amount4 += b.getAmount(); break;
                 case 2: amount2 += b.getAmount(); break;
                 case 1: amount1 += b.getAmount(); break;
-                default: break;
             }
         }
         res.add(new Brick(4, amount4));
@@ -221,15 +219,9 @@ public class Layer {
         int amount1 = 0;
         for (Brick b : bricks) {
             switch (b.getLength()) {
-                case (4):
-                    amount4 = b.getAmount();
-                    break;
-                case (2):
-                    amount2 = b.getAmount();
-                    break;
-                case (1):
-                    amount1 = b.getAmount();
-                    break;
+                case (4): amount4 = b.getAmount(); break;
+                case (2): amount2 = b.getAmount(); break;
+                case (1): amount1 = b.getAmount(); break;
             }
 
         }
