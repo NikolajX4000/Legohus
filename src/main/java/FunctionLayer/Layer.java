@@ -128,30 +128,24 @@ public class Layer {
         int amount2 = 0;
         int amount1 = 0;
         for (Brick b : l1) {
-            if (b.getLength() == 4) {
-                amount4 += b.getAmount();
-            }
-            if (b.getLength() == 2) {
-                amount2 += b.getAmount();
-            }
-            if (b.getLength() == 1) {
-                amount1 += b.getAmount();
+            switch (b.getLength()) {
+                case 4: amount4 += b.getAmount(); break;
+                case 2: amount2 += b.getAmount(); break;
+                case 1: amount1 += b.getAmount(); break;
+                default: break;
             }
         }
         for (Brick b : l2) {
-            if (b.getLength() == 4) {
-                amount4 += b.getAmount();
-            }
-            if (b.getLength() == 2) {
-                amount2 += b.getAmount();
-            }
-            if (b.getLength() == 1) {
-                amount1 += b.getAmount();
+            switch (b.getLength()) {
+                case 4: amount4 += b.getAmount(); break;
+                case 2: amount2 += b.getAmount(); break;
+                case 1: amount1 += b.getAmount(); break;
+                default: break;
             }
         }
-        res.add(new Brick(4,amount4));
-        res.add(new Brick(2,amount2));
-        res.add(new Brick(1,amount1));
+        res.add(new Brick(4, amount4));
+        res.add(new Brick(2, amount2));
+        res.add(new Brick(1, amount1));
         return res;
     }
 
@@ -182,8 +176,8 @@ public class Layer {
     public List<Brick> getLeft() {
         return left;
     }
-    
-    public List<Brick> getBricks(){
+
+    public List<Brick> getBricks() {
         return bricks;
     }
 

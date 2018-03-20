@@ -24,7 +24,9 @@ public class House {
         }
 
     }
-
+    
+    
+    
     public int getLength() {
         return length;
     }
