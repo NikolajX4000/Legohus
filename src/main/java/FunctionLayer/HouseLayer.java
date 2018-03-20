@@ -68,35 +68,55 @@ public class HouseLayer {
     private void buildTopWindow(int length) {
         int len1 = length / 2;
         int len2 = length - len1;
+        int amount4 = len1 / 4;
+        len1 = len1 % 4;
+        int amount2 = len1 / 2;
+        len1 = len1 % 2;
+        int amount1 = len1;
+        top.add(new Brick(4, (len2 / 4) + amount4));
+        len2 %= 4;
+        top.add(new Brick(2, (len2 / 2) + amount2));
+        len2 %= 2;
+        top.add(new Brick(1, len2 + amount1));
     }
 
     private void buildBot(int length) {
-        top.add(new Brick(4, length / 4));
+        bot.add(new Brick(4, length / 4));
         length %= 4;
-        top.add(new Brick(2, length / 2));
+        bot.add(new Brick(2, length / 2));
         length %= 2;
-        top.add(new Brick(1, length));
+        bot.add(new Brick(1, length));
     }
 
     private void buildBotDoor(int length) {
         int len1 = length / 2;
         int len2 = length - len1;
+        int amount4 = len1 / 4;
+        len1 = len1 % 4;
+        int amount2 = len1 / 2;
+        len1 = len1 % 2;
+        int amount1 = len1;
+        bot.add(new Brick(4, (len2 / 4) + amount4));
+        len2 %= 4;
+        bot.add(new Brick(2, (len2 / 2) + amount2));
+        len2 %= 2;
+        bot.add(new Brick(1, len2 + amount1));
     }
 
     private void buildRight(int length) {
-        top.add(new Brick(4, length / 4));
+        right.add(new Brick(4, length / 4));
         length %= 4;
-        top.add(new Brick(2, length / 2));
+        right.add(new Brick(2, length / 2));
         length %= 2;
-        top.add(new Brick(1, length));
+        right.add(new Brick(1, length));
     }
 
     private void buildLeft(int length) {
-        top.add(new Brick(4, length / 4));
+        left.add(new Brick(4, length / 4));
         length %= 4;
-        top.add(new Brick(2, length / 2));
+        left.add(new Brick(2, length / 2));
         length %= 2;
-        top.add(new Brick(1, length));
+        left.add(new Brick(1, length));
     }
 
     public int getLength() {
