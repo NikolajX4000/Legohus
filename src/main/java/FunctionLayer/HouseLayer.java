@@ -27,12 +27,12 @@ public class HouseLayer {
     private void buildLayer() {
         if (level % 2 == 0) {
             if (level <= 6) {
-                buildBotDoor(length);
+                buildBotDoor(length - 4);
             } else {
                 buildBot(length);
             }
             if (level >= 3 && level <= 5) {
-                buildTopWindow(length);
+                buildTopWindow(length - 4);
             } else {
                 buildTop(length);
             }
@@ -40,12 +40,12 @@ public class HouseLayer {
         } else {
             buildSide(width);
             if (level <= 6) {
-                buildBotDoor(length - 4);
+                buildBotDoor(length - 8);
             } else {
                 buildBot(length - 4);
             }
             if (level >= 3 && level <= 5) {
-                buildTopWindow(length - 4);
+                buildTopWindow(length - 8);
             } else {
                 buildTop(length - 4);
             }
@@ -58,27 +58,45 @@ public class HouseLayer {
     }
 
     private void buildTop(int length) {
-        
+        top.add(new Brick(4, length / 4));
+        length %= 4;
+        top.add(new Brick(2, length / 2));
+        length %= 2;
+        top.add(new Brick(1, length));
     }
 
     private void buildTopWindow(int length) {
-
+        int len1 = length / 2;
+        int len2 = length - len1;
     }
 
     private void buildBot(int length) {
-
+        top.add(new Brick(4, length / 4));
+        length %= 4;
+        top.add(new Brick(2, length / 2));
+        length %= 2;
+        top.add(new Brick(1, length));
     }
 
     private void buildBotDoor(int length) {
-
+        int len1 = length / 2;
+        int len2 = length - len1;
     }
 
     private void buildRight(int length) {
-
+        top.add(new Brick(4, length / 4));
+        length %= 4;
+        top.add(new Brick(2, length / 2));
+        length %= 2;
+        top.add(new Brick(1, length));
     }
 
     private void buildLeft(int length) {
-
+        top.add(new Brick(4, length / 4));
+        length %= 4;
+        top.add(new Brick(2, length / 2));
+        length %= 2;
+        top.add(new Brick(1, length));
     }
 
     public int getLength() {
@@ -144,6 +162,7 @@ public class HouseLayer {
 
     @Override
     public String toString() {
-        return "HouseLayer{" + '}';
+        return "Layer " + level + " = {" + "top=" + top + ", bot=" + bot + ", right=" + right + ", left=" + left + '}';
     }
+
 }

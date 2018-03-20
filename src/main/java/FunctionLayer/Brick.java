@@ -53,7 +53,7 @@ class Brick {
         for (int i = 0; i < length; i++) {
             sb.append(":");
         }
-        return amount + " x " + sb.toString();
+        return "{" + amount + " x " + sb.toString() + "}";
     }
     
 }
