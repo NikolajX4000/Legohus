@@ -3,7 +3,7 @@ package FunctionLayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HouseLayer {
+public class Layer {
 
     private int length;
     private int width;
@@ -12,8 +12,9 @@ public class HouseLayer {
     private List<Brick> bot;
     private List<Brick> right;
     private List<Brick> left;
+    private List<Brick> bricks;
 
-    public HouseLayer(int length, int width, int level) {
+    public Layer(int length, int width, int level) {
         this.length = length;
         this.width = width;
         this.level = level;
@@ -22,6 +23,7 @@ public class HouseLayer {
         right = new ArrayList<>();
         left = new ArrayList<>();
         buildLayer();
+        bricks = mergeLists(mergeLists(top, bot), mergeLists(right, left));
     }
 
     private void buildLayer() {
@@ -119,6 +121,39 @@ public class HouseLayer {
         left.add(new Brick(1, length));
     }
 
+    private List<Brick> mergeLists(List<Brick> l1, List<Brick> l2) {
+        List<Brick> res = new ArrayList<>();
+        int amount4 = 0;
+        int amount2 = 0;
+        int amount1 = 0;
+        for (Brick b : l1) {
+            if (b.getLength() == 4) {
+                amount4 += b.getAmount();
+            }
+            if (b.getLength() == 2) {
+                amount2 += b.getAmount();
+            }
+            if (b.getLength() == 1) {
+                amount1 += b.getAmount();
+            }
+        }
+        for (Brick b : l2) {
+            if (b.getLength() == 4) {
+                amount4 += b.getAmount();
+            }
+            if (b.getLength() == 2) {
+                amount2 += b.getAmount();
+            }
+            if (b.getLength() == 1) {
+                amount1 += b.getAmount();
+            }
+        }
+        bricks.add(new Brick(4,amount4));
+        bricks.add(new Brick(2,amount2));
+        bricks.add(new Brick(1,amount1));
+        return res;
+    }
+
     public int getLength() {
         return length;
     }
@@ -146,6 +181,10 @@ public class HouseLayer {
     public List<Brick> getLeft() {
         return left;
     }
+    
+    public List<Brick> getBricks(){
+        return bricks;
+    }
 
     @Override
     public int hashCode() {
@@ -167,7 +206,7 @@ public class HouseLayer {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final HouseLayer other = (HouseLayer) obj;
+        final Layer other = (Layer) obj;
         if (this.length != other.length) {
             return false;
         }
@@ -182,7 +221,24 @@ public class HouseLayer {
 
     @Override
     public String toString() {
-        return "Layer " + level + " = {" + "top=" + top + ", bot=" + bot + ", right=" + right + ", left=" + left + '}';
+        int amount4 = 0;
+        int amount2 = 0;
+        int amount1 = 0;
+        for (Brick b : bricks) {
+            switch (b.getLength()) {
+                case (4):
+                    amount4 = b.getAmount();
+                    break;
+                case (2):
+                    amount2 = b.getAmount();
+                    break;
+                case (1):
+                    amount1 = b.getAmount();
+                    break;
+            }
+
+        }
+        return amount4 + " x :::: " + amount2 + " x :: " + amount1 + " x :";
     }
 
 }

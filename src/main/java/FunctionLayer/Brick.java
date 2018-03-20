@@ -1,6 +1,7 @@
 package FunctionLayer;
 
 class Brick {
+
     private int length;
     private int amount;
 
@@ -12,7 +13,7 @@ class Brick {
     public int getLength() {
         return length;
     }
-    
+
     public int getAmount() {
         return amount;
     }
@@ -46,7 +47,6 @@ class Brick {
         return true;
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -55,5 +55,5 @@ class Brick {
         }
         return "{" + amount + " x " + sb.toString() + "}";
     }
-    
+
 }
