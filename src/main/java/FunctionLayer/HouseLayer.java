@@ -23,9 +23,62 @@ public class HouseLayer {
         left = new ArrayList<>();
         buildLayer();
     }
-    
-    private void buildLayer(){
-        
+
+    private void buildLayer() {
+        if (level % 2 == 0) {
+            if (level <= 6) {
+                buildBotDoor();
+            } else {
+                buildBot();
+            }
+            if (level >= 3 && level <= 5) {
+                buildTopWindow();
+            } else {
+                buildTop();
+            }
+            buildSide();
+        } else {
+            buildSide();
+            if (level <= 6) {
+                buildBotDoor();
+            } else {
+                buildBot();
+            }
+            if (level >= 3 && level <= 5) {
+                buildTopWindow();
+            } else {
+                buildTop();
+            }
+        }
+    }
+
+    private void buildSide() {
+        buildRight();
+        buildLeft();
+    }
+
+    private void buildTop() {
+
+    }
+
+    private void buildTopWindow() {
+
+    }
+
+    private void buildBot() {
+
+    }
+
+    private void buildBotDoor() {
+
+    }
+
+    private void buildRight() {
+
+    }
+
+    private void buildLeft() {
+
     }
 
     public int getLength() {
@@ -93,5 +146,4 @@ public class HouseLayer {
     public String toString() {
         return "HouseLayer{" + '}';
     }
-    
 }
