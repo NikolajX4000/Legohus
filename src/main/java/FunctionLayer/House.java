@@ -108,6 +108,6 @@ public class House {
             }
 
         }
-        return '{' + amount4 + " x [::::] " + amount2 + " x [::] " + amount1 + " x [:]}";
+        return amount4 + " x [::::] " + amount2 + " x [::] " + amount1 + " x [:]";
     }
 }
