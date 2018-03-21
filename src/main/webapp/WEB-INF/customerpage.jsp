@@ -8,7 +8,8 @@
     <body>
         <h1>Hello <%=request.getParameter("email")%> </h1>
         You are now logged in as a customer of our wonderful site.
-        <form action="" name="order">
+        <form action="FrontController" name="shop">
+            <input type="hidden" name="command" value="shop">
             Length:<br>
             <input type="number" name="length" value="8" min="8">
             <br>

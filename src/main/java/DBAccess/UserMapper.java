@@ -1,6 +1,6 @@
 package DBAccess;
 
-import FunctionLayer.LoginSampleException;
+import FunctionLayer.CustomException;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 public class UserMapper {
 
-    public static void createUser(User user) throws LoginSampleException {
+    public static void createUser(User user) throws CustomException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
@@ -24,11 +24,11 @@ public class UserMapper {
             int id = ids.getInt(1);
             user.setId(id);
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new CustomException(ex.getMessage());
         }
     }
 
-    public static User login(String email, String password) throws LoginSampleException {
+    public static User login(String email, String password) throws CustomException {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT id, role FROM Users "
@@ -44,10 +44,10 @@ public class UserMapper {
                 user.setId(id);
                 return user;
             } else {
-                throw new LoginSampleException("Could not validate user");
+                throw new CustomException("Could not validate user");
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new CustomException(ex.getMessage());
         }
     }
 }

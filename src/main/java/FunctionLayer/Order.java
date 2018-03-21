@@ -8,8 +8,7 @@ public class Order {
     private int height;
     private int userId;
 
-    public Order(int id, int length, int width, int height, int userId) {
-        this.id = id;
+    public Order(int length, int width, int height, int userId) {
         this.length = length;
         this.width = width;
         this.height = height;
@@ -34,6 +33,10 @@ public class Order {
 
     public int getUserId() {
         return userId;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

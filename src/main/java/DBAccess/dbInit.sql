@@ -1,4 +1,6 @@
+DROP TABLE IF EXISTS `Orders`;
 DROP TABLE IF EXISTS `Users`;
+
 CREATE TABLE `Users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(90) NOT NULL,
@@ -14,3 +16,13 @@ INSERT INTO `Users` VALUES
 (2,'ken@somewhere.com','kensen','customer'),
 (3,'robin@somewhere.com','batman','employee');
 UNLOCK TABLES;
+
+CREATE TABLE `Orders`(
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`length` int(11) NOT NULL,
+`width` int(11) NOT NULL,
+`height` int(11) NOT NULL,
+`user_id` int(11) NOT NULL,
+PRIMARY KEY (`id`),
+FOREIGN KEY (`user_id`) REFERENCES Users(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
