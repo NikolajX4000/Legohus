@@ -33,13 +33,34 @@ public class OrderMapper {
         }
     }
 
-    public static List<Order> getUsersOrders(User user) throws CustomException{
+    public static List<Order> getUsersOrders(User user) throws CustomException {
         List<Order> orders = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM Orders WHERE user_id=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, user.getId());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                int userId = rs.getInt("user_id");
+                orders.add(new Order(id, length, width, height, userId));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new CustomException(ex.getMessage());
+        }
+        return orders;
+    }
+
+    public static List<Order> getAllOrders() throws CustomException {
+        List<Order> orders = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM Orders";
+            PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

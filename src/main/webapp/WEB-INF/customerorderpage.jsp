@@ -1,7 +1,7 @@
-<%@ page import="javax.servlet.http.HttpSession"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="FunctionLayer.Order"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="FunctionLayer.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% List<Order> orders = (ArrayList<Order>) session.getAttribute("orders");%>

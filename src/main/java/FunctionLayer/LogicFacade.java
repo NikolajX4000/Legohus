@@ -23,4 +23,8 @@ public class LogicFacade {
     public static List<Order> getUsersOrders(User user) throws CustomException {
         return OrderMapper.getUsersOrders(user);
     }
+
+    public static List<Order> getAllOrders() throws CustomException {
+        return OrderMapper.getAllOrders();
+    }
 }
