@@ -4,6 +4,7 @@ import FunctionLayer.LogicFacade;
 import FunctionLayer.CustomException;
 import FunctionLayer.Order;
 import FunctionLayer.User;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,10 +26,12 @@ public class Shop extends Command {
         User user = (User) session.getAttribute("user");
         Order order = new Order(length, width, height, user.getId());
         boolean added = LogicFacade.newOrder(order);
+        List<Order> orders = LogicFacade.getUsersOrders(user);
+        session.setAttribute("orders", orders);
         if (!added) {
             throw new CustomException("Could not add order");
         } else {
-            return "orderpage";
+            return "customerorderpage";
         }
     }
 }

@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DBAccess.UserMapper;
 import DBAccess.OrderMapper;
+import java.util.List;
 
 public class LogicFacade {
 
@@ -17,5 +18,9 @@ public class LogicFacade {
 
     public static boolean newOrder(Order order) throws CustomException {
         return OrderMapper.createOrder(order);
+    }
+
+    public static List<Order> getUsersOrders(User user) throws CustomException {
+        return OrderMapper.getUsersOrders(user);
     }
 }

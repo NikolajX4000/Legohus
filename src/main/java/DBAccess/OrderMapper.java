@@ -2,11 +2,14 @@ package DBAccess;
 
 import FunctionLayer.CustomException;
 import FunctionLayer.Order;
+import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderMapper {
 
@@ -29,5 +32,26 @@ public class OrderMapper {
             throw new CustomException(ex.getMessage());
         }
     }
-    
+
+    public static List<Order> getUsersOrders(User user) throws CustomException{
+        List<Order> orders = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM Orders WHERE user_id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, user.getId());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                int userId = rs.getInt("user_id");
+                orders.add(new Order(id, length, width, height, userId));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new CustomException(ex.getMessage());
+        }
+        return orders;
+    }
 }
