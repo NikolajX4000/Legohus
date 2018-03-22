@@ -5,12 +5,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="jspf/header.jspf" %>
 <% List<Order> orders = (ArrayList<Order>) session.getAttribute("orders");%>
-<div class="container">
+<div class="container-fluid text-center">
     <div class="jumbotron">
         <h1>Hello <%=user.getEmail()%></h1>
         Welcome to the orderpage, here you can see all your orders.
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" align="center">
         <tr>
             <th>Id</th>
             <th>Length</th>

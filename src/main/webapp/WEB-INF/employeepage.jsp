@@ -6,12 +6,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="jspf/header.jspf" %>
 <%List<Order> orders = (ArrayList<Order>) session.getAttribute("allOrders");%>
-<div class="container">
+<div class="container-fluid text-center">
     <div class="jumbotron">
         <h1>Hello <%=user.getEmail()%> </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" align="center">
         <tr>
             <th>Id</th>
             <th>User id</th>

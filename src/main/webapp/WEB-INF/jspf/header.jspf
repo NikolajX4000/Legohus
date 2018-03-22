@@ -2,24 +2,24 @@
 <%@page import="functionLayer.User"%>
 <%  User user = (User) session.getAttribute("user");%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title>Bootstrap Example</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='style.css' rel='stylesheet' type='text/css'>
+        <title>Lego House</title>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">Lego</a>
+                    <a class="navbar-brand">Lego House</a>
                 </div>
                 <%if (user != null) {%>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="FrontController?command=logout">Logout</a></li>
+                    <a href="FrontController?command=logout" >Logout</a>
                 </ul>
                 <%}%>
             </div>
