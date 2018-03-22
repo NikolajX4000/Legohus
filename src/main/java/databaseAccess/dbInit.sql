@@ -23,6 +23,7 @@ CREATE TABLE `Orders`(
 `width` int(11) NOT NULL,
 `height` int(11) NOT NULL,
 `user_id` int(11) NOT NULL,
+`status` varchar(20) DEFAULT 'Not sent',
 PRIMARY KEY (`id`),
 FOREIGN KEY (`user_id`) REFERENCES Users(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

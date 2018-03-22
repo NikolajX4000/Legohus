@@ -20,6 +20,7 @@
                 <th>Width</th>
                 <th>Height</th>
                 <th>Brick list</th>
+                <th>Status</th>
             </tr>
             <%for (Order o : orders) {%>
             <tr>
@@ -28,6 +29,7 @@
                 <td><%out.print(o.getWidth());%></td>
                 <td><%out.print(o.getHeight());%></td>
                 <td><%out.print(o.getHouse());%></td>
+                <td><%out.print(o.getStatus());%></td>
             </tr>
             <%}%>
         </table>

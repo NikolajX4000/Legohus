@@ -1,7 +1,7 @@
-package DBAccess;
+package databaseAccess;
 
-import FunctionLayer.CustomException;
-import FunctionLayer.User;
+import functionLayer.CustomException;
+import functionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

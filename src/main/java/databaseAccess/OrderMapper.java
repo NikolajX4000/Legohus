@@ -1,8 +1,8 @@
-package DBAccess;
+package databaseAccess;
 
-import FunctionLayer.CustomException;
-import FunctionLayer.Order;
-import FunctionLayer.User;
+import functionLayer.CustomException;
+import functionLayer.Order;
+import functionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +47,8 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 int userId = rs.getInt("user_id");
-                orders.add(new Order(id, length, width, height, userId));
+                String status = rs.getString("status");
+                orders.add(new Order(id, length, width, height, userId, status));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new CustomException(ex.getMessage());
@@ -68,7 +69,8 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 int userId = rs.getInt("user_id");
-                orders.add(new Order(id, length, width, height, userId));
+                String status = rs.getString("status");
+                orders.add(new Order(id, length, width, height, userId, status));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new CustomException(ex.getMessage());

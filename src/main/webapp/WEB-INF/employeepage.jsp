@@ -22,6 +22,7 @@
                 <th>Width</th>
                 <th>Height</th>
                 <th>Brick list</th>
+                <th>Status</th>
             </tr>
             <%for (Order o : orders) {%>
             <tr>
@@ -31,6 +32,14 @@
                 <td><%out.print(o.getWidth());%></td>
                 <td><%out.print(o.getHeight());%></td>
                 <td><%out.print(o.getHouse());%></td>
+                <td>
+                    <form action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="updateStatus">
+                        <select name="status">
+                            
+                        </select>
+                    </form>
+                </td>
             </tr>
             <%}%>
         </table>
