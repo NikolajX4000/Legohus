@@ -77,4 +77,18 @@ public class OrderMapper {
         }
         return orders;
     }
+
+    public static boolean updateStatus(int orderId) throws CustomException {
+        boolean changedLines;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE Orders SET status='Sent' WHERE id= ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderId);
+            changedLines = ps.executeUpdate() > 0;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new CustomException(ex.getMessage());
+        }
+        return changedLines;
+    }
 }
