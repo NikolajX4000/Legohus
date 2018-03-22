@@ -16,7 +16,7 @@ public class OrderMapper {
     public static boolean createOrder(Order order) throws CustomException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Orders (length, width, height, user_id) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO orders (length, width, height, user_id) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getLength());
             ps.setInt(2, order.getWidth());
@@ -37,7 +37,7 @@ public class OrderMapper {
         List<Order> orders = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM Orders WHERE user_id=?";
+            String SQL = "SELECT * FROM orders WHERE user_id=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, user.getId());
             ResultSet rs = ps.executeQuery();
@@ -60,7 +60,7 @@ public class OrderMapper {
         List<Order> orders = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM Orders";
+            String SQL = "SELECT * FROM orders";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -82,7 +82,7 @@ public class OrderMapper {
         boolean changedLines;
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE Orders SET status='Sent' WHERE id= ?";
+            String SQL = "UPDATE orders SET status='Sent' WHERE id= ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderId);
             changedLines = ps.executeUpdate() > 0;
