@@ -21,7 +21,7 @@ public class Register extends Command {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
-            return user.getRole() + "page";
+            return "/WEB-INF/" + user.getRole() + "page";
         } else {
             throw new CustomException("the two passwords did not match");
         }

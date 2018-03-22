@@ -31,7 +31,7 @@ public class Shop extends Command {
         if (!added) {
             throw new CustomException("Could not add order");
         } else {
-            return "customerorderpage";
+            return "/WEB-INF/" + "customerorderpage";
         }
     }
 }

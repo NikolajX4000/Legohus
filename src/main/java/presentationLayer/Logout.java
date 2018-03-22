@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author super
  */
-@WebServlet(name = "KeepShopping", urlPatterns = {"/KeepShopping"})
-public class KeepShopping extends Command {
+@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
+public class Logout extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws CustomException {
-        return "/WEB-INF/" + "customerpage";
+        request.getSession().invalidate();
+        return "index";
     }
 
 }

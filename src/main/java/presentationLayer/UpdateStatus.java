@@ -21,7 +21,7 @@ public class UpdateStatus extends Command {
         boolean success = LogicFacade.updateStatus(orderId);
         if (success) {
             session.setAttribute("allOrders", LogicFacade.getAllOrders());
-            return "employeepage";
+            return "/WEB-INF/" + "employeepage";
         } else {
             throw new CustomException("Failed to update");
         }

@@ -22,6 +22,6 @@ public class Login extends Command {
         if(user.getRole().equals("employee")){
             session.setAttribute("allOrders", LogicFacade.getAllOrders());
         }
-        return user.getRole() + "page";
+        return "/WEB-INF/" + user.getRole() + "page";
     }
 }
