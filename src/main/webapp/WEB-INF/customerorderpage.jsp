@@ -33,6 +33,10 @@
             </tr>
             <%}%>
         </table>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="keepShopping">
+            <input type="submit" value="Keep shoping">
+        </form>
     </body>
 </html>
 

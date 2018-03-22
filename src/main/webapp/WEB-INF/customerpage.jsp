@@ -1,12 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="functionLayer.User"%>
 <!DOCTYPE html>
+<%  User user = (User) session.getAttribute("user");%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer home page</title>
     </head>
     <body>
-        <h1>Hello <%=request.getParameter("email")%> </h1>
+        <h1>Hello <%=user.getEmail()%> </h1>
         You are now logged in as a customer of our wonderful site.
         <form action="FrontController" name="shop" method="POST">
             <input type="hidden" name="command" value="shop">

@@ -15,6 +15,7 @@ abstract class Command {
         commands.put("register", new Register());
         commands.put("shop", new Shop());
         commands.put("updateStatus", new UpdateStatus());
+        commands.put("keepShopping", new KeepShopping());
     }
 
     static Command from(HttpServletRequest request) {

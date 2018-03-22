@@ -34,23 +34,23 @@ public class Layer {
             } else {
                 buildBot(length);
             }
+            buildSide(width - 4);
             if (level >= 3 && level <= 5) {
                 buildTopWindow(length - 4);
             } else {
                 buildTop(length);
             }
-            buildSide(width - 4);
         } else {
+            if (level >= 3 && level <= 5) {
+                buildTopWindow(length - 8);
+            } else {
+                buildTop(length - 4);
+            }
             buildSide(width);
             if (level <= 6) {
                 buildBotDoor(length - 8);
             } else {
                 buildBot(length - 4);
-            }
-            if (level >= 3 && level <= 5) {
-                buildTopWindow(length - 8);
-            } else {
-                buildTop(length - 4);
             }
         }
     }
@@ -129,16 +129,28 @@ public class Layer {
         int amount1 = 0;
         for (Brick b : l1) {
             switch (b.getLength()) {
-                case 4: amount4 += b.getAmount(); break;
-                case 2: amount2 += b.getAmount(); break;
-                case 1: amount1 += b.getAmount(); break;
+                case 4:
+                    amount4 += b.getAmount();
+                    break;
+                case 2:
+                    amount2 += b.getAmount();
+                    break;
+                case 1:
+                    amount1 += b.getAmount();
+                    break;
             }
         }
         for (Brick b : l2) {
             switch (b.getLength()) {
-                case 4: amount4 += b.getAmount(); break;
-                case 2: amount2 += b.getAmount(); break;
-                case 1: amount1 += b.getAmount(); break;
+                case 4:
+                    amount4 += b.getAmount();
+                    break;
+                case 2:
+                    amount2 += b.getAmount();
+                    break;
+                case 1:
+                    amount1 += b.getAmount();
+                    break;
             }
         }
         res.add(new Brick(4, amount4));
@@ -219,9 +231,15 @@ public class Layer {
         int amount1 = 0;
         for (Brick b : bricks) {
             switch (b.getLength()) {
-                case (4): amount4 = b.getAmount(); break;
-                case (2): amount2 = b.getAmount(); break;
-                case (1): amount1 = b.getAmount(); break;
+                case (4):
+                    amount4 = b.getAmount();
+                    break;
+                case (2):
+                    amount2 = b.getAmount();
+                    break;
+                case (1):
+                    amount1 = b.getAmount();
+                    break;
             }
 
         }
