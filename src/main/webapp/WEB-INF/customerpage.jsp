@@ -6,6 +6,8 @@
         <h1>Hello <%=user.getEmail()%> </h1>
         You are now logged in as a customer of our wonderful site.
     </div>
+</div>
+<div class="container text-center">
     <form action="FrontController" name="shop" method="POST">
         <input type="hidden" name="command" value="shop">
         <div class="form-group">
