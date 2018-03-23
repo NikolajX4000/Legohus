@@ -1,8 +1,6 @@
 # Legohus
 School Project
 
-link to javadoc: https://nikolajx4000.github.io/Legohus/
-
 # Kravsspecifikation
 
 Der skal laves et system hvor man kan registrere sig som kunde.
