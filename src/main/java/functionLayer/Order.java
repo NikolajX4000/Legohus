@@ -1,6 +1,6 @@
 package functionLayer;
 
-public class Order {
+public class Order{
 
     private int id;
     private int length;

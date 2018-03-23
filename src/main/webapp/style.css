@@ -4,6 +4,7 @@
 .container-fluid {
     padding-top: 20px;
     padding-bottom: 20px;
+    /*background-color: darksalmon;*/
 }
 
 .navbar {
@@ -12,14 +13,10 @@
     border: 0;
     border-radius: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 20px;
     letter-spacing: 5px;
     background-color: gold;
     color: red;
-}
-
-body, html {
-    height: 100%;
 }
 
 body{
