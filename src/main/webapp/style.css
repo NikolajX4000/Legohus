@@ -18,8 +18,12 @@
     color: red;
 }
 
+body, html {
+    height: 100%;
+}
+
 body{
-    background: goldenrod;
+    background-color: goldenrod;
     font-family: 'Oswald', sans-serif !important;
 }
 

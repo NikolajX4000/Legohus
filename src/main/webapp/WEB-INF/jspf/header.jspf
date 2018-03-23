@@ -18,9 +18,14 @@
                     <a class="navbar-brand">Lego House</a>
                 </div>
                 <%if (user != null) {%>
-                <ul class="nav navbar-nav navbar-right">
-                    <a href="FrontController?command=logout" >Logout</a>
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <%if (user.getRole().equals("customer")) {%>
+                            <a href="FrontController?command=viewOrdersCustomer" >View Orders</a>
+                        <%}%>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <a href="FrontController?command=logout" >Logout</a>
+                    </ul>
                 <%}%>
             </div>
         </nav>
