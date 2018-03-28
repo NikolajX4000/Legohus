@@ -1,6 +1,10 @@
 # Legohus
 School Project
 
+# Login
+Customer: email: jens@somewhere.com password: jensen
+Employee: email: robin@somwhere.com password: batman
+
 # Kravsspecifikation
 
 Der skal laves et system hvor man kan registrere sig som kunde.
